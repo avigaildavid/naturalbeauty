@@ -1,0 +1,237 @@
+// Layout  and all of the responsive setup  here
+
+
+//Susy setup ----------------------------------
+
+$total-columns  : 12;
+$column-width   : 4em;
+$gutter-width   : 1em;
+$gutter-padding : $gutter-width;
+
+@include border-box-sizing;
+
+$small          : 30em;
+$medium         : 47em;
+$large          : 75em;
+
+
+//Content --------------------------------------------
+// .layout is use to set grid breakpoints for content
+
+.layout {
+  @include container;
+  .primary {
+    margin-top:2em;
+    @include at-breakpoint($medium) {
+      @include span-columns(8,12);
+        
+      #nextmeeting {
+        @include border-radius(20px);
+        color: $paleryellow;
+        margin : { top: 10px; bottom:10px; }
+        padding: 0 20px 20px 20px;
+        background: $cyan;
+
+        h2{
+          color: darken($cyan, 15);
+          border:none;
+          text-shadow: none;
+          margin-bottom: 20px;
+        }
+
+        a {
+          color:$darkblue;
+        }
+      } // nextmeeting
+      
+    } //medium layout
+  } //primary
+
+//Secondary the aside-------------------------------------
+  .secondary{
+    @include at-breakpoint($medium) {
+      @include span-columns(4 omega, 12); //  4 is the remainder from total cols count,  omega b/c it the last col and we want it to float to the right
+      font-size: 1.1rem;
+
+      h2{
+        font-size: 1.8rem;
+        color: $orange;
+      }
+    }
+  } //secondary
+} //layout
+
+
+
+//header ----------------------------------------
+
+header {
+
+ .branding{
+      width: 90%;
+      max-width: 500px;
+      margin-bottom:4%;
+  } //.branding
+
+  .hero{
+      width:100%;
+         @include at-breakpoint($medium) {
+         @include single-transition(all, 1s, ease-out);
+         position: relative;
+         display:block;
+         width:100%;
+         height: 450px;
+         @include background(linear-gradient(bottom left, rgba($paleryellow , .6), rgba($paleryellow , 0)),image-url('watercolortrees.jpg'));
+         background-position: center center;
+         background-repeat: no-repeat;
+         @include background-size(cover);
+         margin: 0 auto;
+
+         .branding{
+            position: absolute;
+            left:4%;
+            bottom:4%;
+            margin-bottom:0;
+
+            h1 {
+               color: darken($darkblue, 25);
+            }
+         } //.branding
+      
+      }// medium breakpoint
+   } //hero
+} //header
+
+//Navigation ------------------------------------
+.navigation {
+   background: lighten($darkblue, 15);
+
+   ul.nav {
+      @include at-breakpoint($small) {
+         @include horizontal-list;
+      } //small
+
+      li {
+
+         i { color: lighten($yellow, 20); } //icons
+
+         a {
+            @include single-transition(all, .5s, ease-out);
+            display: block;
+            text-decoration: none;
+            padding: 5px 10px;
+            color: $paleryellow;
+
+            &:hover {
+               background: $orange;
+               color: lighten($yellow, 30);
+            }// hover
+
+         }//a
+
+      } //li
+   } //ul.nav
+} // navigation
+
+
+//Featuring List ---------------------------------------
+.featuringlist{
+  img {
+    @include border-radius;
+    width: 120px;
+    float: left;
+    margin: { 
+      right: 10px;
+      bottom: 10px;
+    } //margin
+  } //img
+
+  i {
+    padding-right: 15px;
+  }
+
+  @include at-breakpoint($medium) {
+    text-align: center;
+    @include background(linear-gradient(top, lighten($darkblue, 3), $darkerblue));
+    color: rgba($paleyellow, .5);
+    overflow: hidden;
+    padding-bottom: 10px;
+    #{headings()} {
+      text-shadow: none;
+      border-bottom: none !important;
+    } //headings
+
+    h2 {
+      color: $green;
+      font-size: 2.6rem;
+      line-height: 1em;
+      @include at-breakpoint($large) {
+        font-size: 4rem;
+        line-height: 1em;
+      } //large
+    } //h1
+
+    h3 { 
+      color: lighten($yellow, 10);
+      line-height: .9rem;
+    } //h3
+
+    .small {
+      padding-top: .4em !important;
+      line-height: 1em;
+      color: lighten($darkblue, 30);
+      display: block;
+      a {
+        color: lighten($darkblue, 30);
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        } //hover
+      } //a
+    } // .small
+
+    img.art {
+      float: none;
+      width: 40%;
+      max-width: 170px;
+      margin: 0 auto;
+      @include border-radius(50%);
+    }
+
+
+    p:nth-of-type(2) {
+      font-weight: 200 !important;
+      text-align: left;
+      font-size: .8em;
+      opacity: 0;
+      line-height: 0;
+      @include single-transition(all, .3s, ease-out);
+    }
+
+    &:hover {
+      p:nth-of-type(2) {
+
+        line-height: 1.5em;
+        opacity: 1;
+      }
+    }
+
+    .artist{
+      @include span-columns(4,12);
+    }
+
+    .artist:nth-of-type(3) {
+      @include span-columns(4 omega, 12);
+    }
+  } //medium -breakpoint
+} // Featuring List 
+
+
+//footer ---------------------------------------
+footer {
+  color: $paleyellow;
+  background: lighten($darkblue, 3);
+  margin-top: 20px;
+  padding-top: 20px;
+  padding-bottom: 100px;
+}
