@@ -1,7 +1,8 @@
 require 'susy'
-css_dir = '_/css'
-sass_dir = '_/components/sass'
-javascripts_dir = '_/js'
+sass_dir = 'assets/sass'
+css_dir = 'build/css'
+javascripts_dir = 'build/js'
+images_dir = 'build/img'
 
 output_style = :expanded
 relative_assets = true;

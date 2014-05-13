@@ -1,37 +1,91 @@
+
 module.exports = function(grunt) {
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-compass');
+
+  'use strict';
+
+  //Path vars -------------------------------------------------------
+
+  var jsSrcFiles, scssSrcFiles, allHtml, buildCss, buildJs, buildImg;
+  
+  jsSrcFiles = 'assets/js/**/*.js';
+  scssSrcFiles = 'assets/sass/*.scss';
+
+  allHtml = '*.html';
+  buildCss = 'build/css/*.css';
+  buildJs = 'build/js/{script.min.js}';
+  buildImg = 'build/img/**';
+
+
+  // Load Grunt tasks automatically ---------------------------------
+
+  require('load-grunt-tasks')(grunt, { scope: 'devDependencies' });
+
+
   grunt.initConfig({
+
+    // Tasks Configurations -----------------------------------------
+
+    //Lint ------------------------------------------
+
+    jshint: {
+      options: {
+        reporter: require('jshint-stylish')
+      },
+
+      all: {
+        src: [ 'gruntfile.js', jsSrcFiles ] 
+      }
+
+    }, 
+
+    // Minify js ------------------------------------
+
     uglify: {
-      my_target: {
+      all: {
         files: {
-          '_/js/script.js': ['_/components/js/*.js']
-        } //files obj it will look for any  js in that dir
-      } //my_target
-    }, //uglify task
+          buildJs:  jsSrcFiles 
+        } 
+      }
+    }, 
+
+    // Styling --------------------------------------
+
     compass: {
+
       dev: {
         options:{
-          config: 'config.rb'
-        } //options
-      } //dev
-    }, // compass
+          config: 'config.rb',
+          force: true
+        }
+      }
+    }, 
+
+    // Watch ----------------------------------------
+
     watch: {
-      options: { livereload: true },
       scripts: {
-        files: ['_/components/js/*.js'],
-        tasks: ['uglify']
-      }, //scripts
+        files: [ 'Gruntfile.js', jsSrcFiles ] ,
+        tasks: ['newer:jshint:all','newer:uglify:all']
+      }, 
+
       sass: {
-        files: ['_/components/sass/*.scss'],
+        files: scssSrcFiles,
         tasks: ['compass:dev']
-      }, //sass
-      html: {
-        files: ['*.html']
-      } //html
-    } //watch
-  }) //initConfig
+      }, 
+
+      livereload: {
+        options: { livereload: true },
+        files: [ allHtml , buildCss, buildJs, buildImg]
+      } 
+
+    } 
+    
+  }); 
+
+
+  // Define tasks...
   grunt.registerTask('default', 'watch'); // default grunt command
-} //exports main obj func
+
+
+}; 
 
