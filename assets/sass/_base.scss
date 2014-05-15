@@ -1,37 +1,44 @@
+
+// "base" partial
+
+
+
+
 @import url('http://fonts.googleapis.com/css?family=Bree+Serif|Merriweather');
 @import url('http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css');
 
+
 /*setting global styles for text */
 body {  
-    font-family: $font-primary;
-    font-size: 1.2rem;
+    font-family: $font-body; 
+    @include rem(font-size, 1.2rem);
     line-height: 160%;
     background: $paleyellow;
     color: $darkblue;
 
 }
 #{headings()}{
-    font-family:$font-secondary;
+    font-family:$font-headline;
     font-weight: normal;
     color:$darkgray;
     @include text-shadow($paleryellow 1px 1px);
 }
 
 h1{ 
-    font-size: 2.2rem;
+    @include rem(font-size, 2.2rem);
     color: lighten($darkblue, 25);
     margin-bottom:.4rem;
     padding-top:10px;
 }
 h2 {
-   font-size: 1.5rem;
+   @include rem(font-size, 1.5rem);
    color: lighten($darkblue, 25);
    margin-bottom:.4rem;
    padding-top:10px;
    border-bottom:1px solid $lightgray; 
 }
 h3 {
-    font-size: 1.8rem;
+    @include rem(font-size, 1.8rem);
     line-height: 60%;
     color: $orange;
 }
@@ -47,7 +54,7 @@ p {
     margin-bottom:10px;
 }
 .small {
-    font-size: 1rem;
+    @include rem(font-size, 1rem);
     color: $blue;
 }
 

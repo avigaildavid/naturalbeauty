@@ -3,18 +3,6 @@ module.exports = function(grunt) {
 
   'use strict';
 
-  //Path vars -------------------------------------------------------
-
-  var jsSrcFiles, scssSrcFiles, allHtml, buildCss, buildJs, buildImg;
-  
-  jsSrcFiles = 'assets/js/**/*.js';
-  scssSrcFiles = 'assets/sass/*.scss';
-
-  allHtml = '*.html';
-  buildCss = 'build/css/*.css';
-  buildJs = 'build/js/{script.min.js}';
-  buildImg = 'build/img/**';
-
 
   // Load Grunt tasks automatically ---------------------------------
 
@@ -33,7 +21,7 @@ module.exports = function(grunt) {
       },
 
       all: {
-        src: [ 'gruntfile.js', jsSrcFiles ] 
+        src: [ 'gruntfile.js', 'assets/js/**/*.js' ] 
       }
 
     }, 
@@ -43,7 +31,7 @@ module.exports = function(grunt) {
     uglify: {
       all: {
         files: {
-          buildJs:  jsSrcFiles 
+          'build/js/script.min.js' : ['assets/js/**/*.js']
         } 
       }
     }, 
@@ -57,6 +45,7 @@ module.exports = function(grunt) {
           config: 'config.rb',
           force: true
         }
+
       }
     }, 
 
@@ -64,18 +53,18 @@ module.exports = function(grunt) {
 
     watch: {
       scripts: {
-        files: [ 'Gruntfile.js', jsSrcFiles ] ,
+        files: [ 'Gruntfile.js', 'assets/js/**/*.js' ] ,
         tasks: ['newer:jshint:all','newer:uglify:all']
       }, 
 
       sass: {
-        files: scssSrcFiles,
+        files: 'assets/sass/*.scss',
         tasks: ['compass:dev']
       }, 
 
       livereload: {
         options: { livereload: true },
-        files: [ allHtml , buildCss, buildJs, buildImg]
+        files: [ '*.html' , 'build/css/*.css', 'build/js/script.min.js', 'build/img/**']
       } 
 
     } 

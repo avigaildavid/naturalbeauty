@@ -3,33 +3,38 @@
 
 //Susy setup ----------------------------------
 
-$total-columns  : 12;
-$column-width   : 4em;
-$gutter-width   : 1em;
-$gutter-padding : $gutter-width;
+$susy: (
+  columns: 12, 
+  gutters: 1/4,
+  gutter-position: inside,
+  use-custom: (
+    rem: true,
+  )
+);
+  
 
-@include border-box-sizing;
+@include border-box-sizing; 
 
-$small          : 30em;
-$medium         : 47em;
-$large          : 75em;
+$small-screen-width         : 30em; 
+$medium-screen-width        : 47em;
+$large-screen-width         : 75em;
 
 
 //Content --------------------------------------------
 // .layout is use to set grid breakpoints for content
-
+ 
 .layout {
-  @include container;
+  @include container($susy);
   .primary {
     margin-top:2em;
-    @include at-breakpoint($medium) {
-      @include span-columns(8, 12);
+    @include susy-breakpoint($medium-screen-width , columns) { 
+      @include span(8 of 12);
         
       #nextmeeting {
         @include border-radius(20px);
         color: $paleryellow;
         margin : { top: 10px; bottom:10px; }
-        padding: 0 20px 20px 20px;
+        @include rem(padding, 0 20px 20px 20px);
         background: $cyan;
 
         h2{
@@ -49,14 +54,14 @@ $large          : 75em;
 
 //Secondary the aside-------------------------------------
   .secondary{
-    @include at-breakpoint($medium) {
-      @include span-columns(4 omega, 12); //  4 is the remainder from total cols count,  omega b/c it the last col and we want it to float to the right
-      font-size: 1.1rem;
+    @include susy-breakpoint($medium-screen-width , columns) {
+      @include span(4 of 12 last); 
+        @include rem(font-size, 1.1rem);
 
-      h2{
-        font-size: 1.8rem;
-        color: $orange;
-      }
+        h2{
+          @include rem(font-size, 1.8rem);
+          color: $orange;
+        }
     }
   } //secondary
 } //layout
@@ -75,7 +80,7 @@ header {
 
   .hero{
       width:100%;
-         @include at-breakpoint($medium) {
+         @include susy-breakpoint($medium-screen-width , columns) {
          @include single-transition(all, 1s, ease-out);
          position: relative;
          display:block;
@@ -98,7 +103,7 @@ header {
             }
          } //.branding
       
-      }// medium breakpoint
+      }// medium susy-breakpoint
    } //hero
 } //header
 
@@ -107,7 +112,7 @@ header {
    background: lighten($darkblue, 15);
 
    ul.nav {
-      @include at-breakpoint($small) {
+      @include susy-breakpoint($small-screen-width , columns) {
          @include horizontal-list;
       } //small
 
@@ -150,7 +155,7 @@ header {
     padding-right: 15px;
   }
 
-  @include at-breakpoint($medium) {
+  @include susy-breakpoint($medium-screen-width , columns) {
     text-align: center;
     @include background(linear-gradient(top, lighten($darkblue, 3), $darkerblue));
     color: rgba($paleyellow, .5);
@@ -163,10 +168,10 @@ header {
 
     h2 {
       color: $green;
-      font-size: 2.6rem;
+      @include rem(font-size, 2.6rem);
       line-height: 1em;
-      @include at-breakpoint($large) {
-        font-size: 4rem;
+      @include susy-breakpoint($large-screen-width , columns) {
+        @include rem(font-size, 4rem);
         line-height: 1em;
       } //large
     } //h1
@@ -202,7 +207,7 @@ header {
     p:nth-of-type(2) {
       font-weight: 200 !important;
       text-align: left;
-      font-size: .8em;
+      @include rem(font-size, .8em);
       opacity: 0;
       line-height: 0;
       @include single-transition(all, .3s, ease-out);
@@ -210,20 +215,19 @@ header {
 
     &:hover {
       p:nth-of-type(2) {
-
         line-height: 1.5em;
         opacity: 1;
       }
     }
 
     .artist{
-      @include span-columns(4,12);
+      @include span(4 of 12);
     }
 
     .artist:nth-of-type(3) {
-      @include span-columns(4 omega, 12);
+      @include span(4 of 12 last);
     }
-  } //medium -breakpoint
+  } //medium -susy-breakpoint
 } // Featuring List 
 
 

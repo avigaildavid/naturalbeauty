@@ -44,7 +44,7 @@ var pixGrid = function() {
         if (this.width > window.innerWidth) {
           this.ratio = window.innerWidth / this.width;
           this.height = this.height * this.ratio;
-          this.width = this.width * this.ratio;
+          this.width = this.width * this.ratio; 
         }
 
         centerImage(this);
