@@ -65,82 +65,82 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/*setting global styles for text */
-/* line 12, ../../assets/sass/_base.scss */
+/* line 7, ../../assets/sass/_base.scss */
 body {
   font-family: Merriweather, serif;
-  font-size: 19px;
-  font-size: 1.2rem;
-  line-height: 160%;
   background: #eae3cb;
   color: #0a2933;
+  font-size: 1.2rem;
+  line-height: 160%;
 }
 
-/* line 20, ../../assets/sass/_base.scss */
+/* line 18, ../../assets/sass/_base.scss */
 h1, h2, h3, h4, h5, h6 {
   font-family: Bree Serif, serif;
   font-weight: normal;
+  margin-bottom: .4rem;
+  padding-top: 10px;
   color: #475b62;
   text-shadow: #fcf4dc 1px 1px;
 }
 
-/* line 27, ../../assets/sass/_base.scss */
+/* line 32, ../../assets/sass/_base.scss */
 h1 {
-  font-size: 35px;
   font-size: 2.2rem;
-  color: #1f7f9e;
-  margin-bottom: .4rem;
-  padding-top: 10px;
 }
 
 /* line 33, ../../assets/sass/_base.scss */
 h2 {
-  font-size: 24px;
   font-size: 1.5rem;
-  color: #1f7f9e;
-  margin-bottom: .4rem;
-  padding-top: 10px;
-  border-bottom: 1px solid #819090;
 }
 
-/* line 40, ../../assets/sass/_base.scss */
+/* line 34, ../../assets/sass/_base.scss */
 h3 {
-  font-size: 29px;
   font-size: 1.8rem;
   line-height: 60%;
   color: #bd3613;
 }
 
-/* line 46, ../../assets/sass/_base.scss */
+/* line 40, ../../assets/sass/_base.scss */
+h1, h2 {
+  color: #1f7f9e;
+}
+
+/* line 41, ../../assets/sass/_base.scss */
+h2 {
+  border-bottom: 1px solid #819090;
+}
+
+/* line 43, ../../assets/sass/_base.scss */
 a {
   text-decoration: none;
   color: #536870;
 }
-/* line 49, ../../assets/sass/_base.scss */
+/* line 46, ../../assets/sass/_base.scss */
 a:hover {
   color: #bd3613;
 }
 
-/* line 53, ../../assets/sass/_base.scss */
+/* line 51, ../../assets/sass/_base.scss */
 p {
   margin-bottom: 10px;
 }
 
-/* line 56, ../../assets/sass/_base.scss */
-.small {
-  font-size: 16px;
-  font-size: 1rem;
-  color: #2176c7;
-}
-
-/* line 61, ../../assets/sass/_base.scss */
+/* line 53, ../../assets/sass/_base.scss */
 i {
   padding-right: .5em;
 }
 
-/* line 65, ../../assets/sass/_base.scss */
+/* line 55, ../../assets/sass/_base.scss */
 .blur {
   color: #708284;
+}
+
+/* line 57, ../../assets/sass/_base.scss */
+.small {
+  font-size: 18px;
+  font-size: 1rem;
+  color: #2176c7;
 }
 
 /* line 11, ../../../../../../Library/Ruby/Gems/2.0.0/gems/susy-2.1.2/sass/susy/language/susy/_box-sizing.scss */
@@ -150,8 +150,9 @@ i {
   box-sizing: border-box;
 }
 
-/* line 26, ../../assets/sass/_layout.scss */
+/* line 19, ../../assets/sass/_layout.scss */
 .layout {
+  border: 1px dashed red;
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -162,72 +163,74 @@ i {
   display: block;
   clear: both;
 }
-/* line 28, ../../assets/sass/_layout.scss */
-.layout .primary {
-  margin-top: 2em;
+
+/* line 27, ../../assets/sass/_layout.scss */
+.primary {
+  margin-top: 36px;
+  margin-top: 2rem;
 }
 @media (min-width: 47em) {
-  /* line 28, ../../assets/sass/_layout.scss */
-  .layout .primary {
+  /* line 27, ../../assets/sass/_layout.scss */
+  .primary {
     width: 66.66667%;
     float: left;
     padding-left: 0.83333%;
     padding-right: 0.83333%;
   }
-  /* line 33, ../../assets/sass/_layout.scss */
-  .layout .primary #nextmeeting {
+  /* line 32, ../../assets/sass/_layout.scss */
+  .primary #nextmeeting {
     -moz-border-radius: 20px;
     -webkit-border-radius: 20px;
     border-radius: 20px;
-    color: #fcf4dc;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px 0;
+    margin: 0.55556rem 0;
     padding: 0 20px 20px 20px;
-    padding: 0 1.25rem 1.25rem 1.25rem;
+    padding: 0 1.11111rem 1.11111rem 1.11111rem;
     background: #259286;
+    color: #fcf4dc;
   }
-  /* line 40, ../../assets/sass/_layout.scss */
-  .layout .primary #nextmeeting h2 {
+  /* line 39, ../../assets/sass/_layout.scss */
+  .primary #nextmeeting h2 {
+    margin-bottom: 20px;
+    margin-bottom: 1.11111rem;
     color: #16554e;
     border: none;
     text-shadow: none;
-    margin-bottom: 20px;
   }
-  /* line 47, ../../assets/sass/_layout.scss */
-  .layout .primary #nextmeeting a {
+  /* line 46, ../../assets/sass/_layout.scss */
+  .primary #nextmeeting a {
     color: #0a2933;
   }
 }
+
 @media (min-width: 47em) {
-  /* line 56, ../../assets/sass/_layout.scss */
-  .layout .secondary {
+  /* line 55, ../../assets/sass/_layout.scss */
+  .secondary {
     width: 33.33333%;
     float: right;
     padding-left: 0.83333%;
     padding-right: 0.83333%;
-    font-size: 18px;
     font-size: 1.1rem;
   }
-  /* line 61, ../../assets/sass/_layout.scss */
-  .layout .secondary h2 {
-    font-size: 29px;
+  /* line 60, ../../assets/sass/_layout.scss */
+  .secondary h2 {
     font-size: 1.8rem;
     color: #bd3613;
   }
 }
 
-/* line 75, ../../assets/sass/_layout.scss */
+/* line 74, ../../assets/sass/_layout.scss */
 header .branding {
   width: 90%;
   max-width: 500px;
   margin-bottom: 4%;
 }
-/* line 81, ../../assets/sass/_layout.scss */
+/* line 80, ../../assets/sass/_layout.scss */
 header .hero {
   width: 100%;
 }
 @media (min-width: 47em) {
-  /* line 81, ../../assets/sass/_layout.scss */
+  /* line 80, ../../assets/sass/_layout.scss */
   header .hero {
     -moz-transition: all 1s ease-out;
     -o-transition: all 1s ease-out;
@@ -237,6 +240,7 @@ header .hero {
     display: block;
     width: 100%;
     height: 450px;
+    margin: 0 auto;
     background: -moz-linear-gradient(bottom left, rgba(252, 244, 220, 0.6), rgba(252, 244, 220, 0)), url('../img/watercolortrees.jpg?1126844372');
     background: -webkit-linear-gradient(bottom left, rgba(252, 244, 220, 0.6), rgba(252, 244, 220, 0)), url('../img/watercolortrees.jpg?1126844372');
     background: linear-gradient(to top right, rgba(252, 244, 220, 0.6), rgba(252, 244, 220, 0)), url('../img/watercolortrees.jpg?1126844372');
@@ -246,27 +250,26 @@ header .hero {
     -o-background-size: cover;
     -webkit-background-size: cover;
     background-size: cover;
-    margin: 0 auto;
   }
-  /* line 95, ../../assets/sass/_layout.scss */
+  /* line 103, ../../assets/sass/_layout.scss */
   header .hero .branding {
     position: absolute;
     left: 4%;
     bottom: 4%;
     margin-bottom: 0;
   }
-  /* line 101, ../../assets/sass/_layout.scss */
+  /* line 109, ../../assets/sass/_layout.scss */
   header .hero .branding h1 {
     color: black;
   }
 }
 
-/* line 111, ../../assets/sass/_layout.scss */
+/* line 121, ../../assets/sass/_layout.scss */
 .navigation {
   background: #175c73;
 }
 @media (min-width: 30em) {
-  /* line 114, ../../assets/sass/_layout.scss */
+  /* line 123, ../../assets/sass/_layout.scss */
   .navigation ul.nav {
     margin: 0;
     padding: 0;
@@ -297,130 +300,136 @@ header .hero {
     padding-right: 0;
   }
 }
-/* line 121, ../../assets/sass/_layout.scss */
+/* line 130, ../../assets/sass/_layout.scss */
 .navigation ul.nav li i {
   color: #f7b71a;
 }
-/* line 123, ../../assets/sass/_layout.scss */
+/* line 132, ../../assets/sass/_layout.scss */
 .navigation ul.nav li a {
+  padding: 5px 10px;
+  padding: 0.27778rem 0.55556rem;
   -moz-transition: all 0.5s ease-out;
   -o-transition: all 0.5s ease-out;
   -webkit-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
   display: block;
   text-decoration: none;
-  padding: 5px 10px;
   color: #fcf4dc;
 }
-/* line 130, ../../assets/sass/_layout.scss */
+/* line 139, ../../assets/sass/_layout.scss */
 .navigation ul.nav li a:hover {
   background: #bd3613;
   color: #f8c64c;
 }
 
-/* line 144, ../../assets/sass/_layout.scss */
+/* line 155, ../../assets/sass/_layout.scss */
 .featuringlist img {
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
   width: 120px;
+  width: 6.66667rem;
+  margin: 0 10px 10px 0;
+  margin: 0 0.55556rem 0.55556rem 0;
   float: left;
-  margin-right: 10px;
-  margin-bottom: 10px;
 }
-/* line 154, ../../assets/sass/_layout.scss */
+/* line 162, ../../assets/sass/_layout.scss */
 .featuringlist i {
   padding-right: 15px;
 }
 @media (min-width: 47em) {
-  /* line 143, ../../assets/sass/_layout.scss */
+  /* line 154, ../../assets/sass/_layout.scss */
   .featuringlist {
-    text-align: center;
+    padding-bottom: 10px;
+    padding-bottom: 0.55556rem;
     background: -moz-linear-gradient(top, #0d3340, #042029);
     background: -webkit-linear-gradient(top, #0d3340, #042029);
     background: linear-gradient(to bottom, #0d3340, #042029);
     color: rgba(234, 227, 203, 0.5);
     overflow: hidden;
-    padding-bottom: 10px;
+    text-align: center;
   }
-  /* line 164, ../../assets/sass/_layout.scss */
+  /* line 169, ../../assets/sass/_layout.scss */
   .featuringlist h1, .featuringlist h2, .featuringlist h3, .featuringlist h4, .featuringlist h5, .featuringlist h6 {
     text-shadow: none;
     border-bottom: none !important;
   }
-  /* line 169, ../../assets/sass/_layout.scss */
+  /* line 179, ../../assets/sass/_layout.scss */
   .featuringlist h2 {
+    font-size: 43px;
+    font-size: 2.4rem;
     color: #738a05;
-    font-size: 42px;
-    font-size: 2.6rem;
     line-height: 1em;
+    font-size: 2.6rem;
   }
 }
 @media (min-width: 47em) and (min-width: 75em) {
-  /* line 169, ../../assets/sass/_layout.scss */
+  /* line 179, ../../assets/sass/_layout.scss */
   .featuringlist h2 {
-    font-size: 64px;
+    font-size: 72px;
     font-size: 4rem;
     line-height: 1em;
   }
 }
 @media (min-width: 47em) {
-  /* line 179, ../../assets/sass/_layout.scss */
+  /* line 191, ../../assets/sass/_layout.scss */
   .featuringlist h3 {
+    font-size: 32px;
+    font-size: 1.8rem;
     color: #d69a08;
-    line-height: .9rem;
+    line-height: .9em;
   }
-  /* line 184, ../../assets/sass/_layout.scss */
-  .featuringlist .small {
+  /* line 196, ../../assets/sass/_layout.scss */
+  .featuringlist h3 .small {
     padding-top: .4em !important;
     line-height: 1em;
     color: #2390b3;
     display: block;
   }
-  /* line 189, ../../assets/sass/_layout.scss */
-  .featuringlist .small a {
+  /* line 202, ../../assets/sass/_layout.scss */
+  .featuringlist h3 .small a {
     color: #2390b3;
-    text-decoration: none;
   }
-  /* line 192, ../../assets/sass/_layout.scss */
-  .featuringlist .small a:hover {
+  /* line 204, ../../assets/sass/_layout.scss */
+  .featuringlist h3 .small a:hover {
     text-decoration: underline;
   }
-  /* line 198, ../../assets/sass/_layout.scss */
+  /* line 212, ../../assets/sass/_layout.scss */
   .featuringlist img.art {
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
     float: none;
     width: 40%;
     max-width: 170px;
     margin: 0 auto;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
   }
-  /* line 207, ../../assets/sass/_layout.scss */
+  /* line 221, ../../assets/sass/_layout.scss */
   .featuringlist p:nth-of-type(2) {
-    font-weight: 200 !important;
-    text-align: left;
-    font-size: 0.8em;
-    opacity: 0;
-    line-height: 0;
+    font-size: 14px;
+    font-size: 0.8rem;
     -moz-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
+    font-weight: 200 !important;
+    text-align: left;
+    opacity: 0;
+    line-height: 0;
   }
-  /* line 217, ../../assets/sass/_layout.scss */
+  /* line 231, ../../assets/sass/_layout.scss */
   .featuringlist:hover p:nth-of-type(2) {
-    line-height: 1.5em;
     opacity: 1;
+    line-height: 1.5em;
   }
-  /* line 223, ../../assets/sass/_layout.scss */
+  /* line 237, ../../assets/sass/_layout.scss */
   .featuringlist .artist {
     width: 33.33333%;
     float: left;
     padding-left: 0.83333%;
     padding-right: 0.83333%;
   }
-  /* line 227, ../../assets/sass/_layout.scss */
+  /* line 239, ../../assets/sass/_layout.scss */
   .featuringlist .artist:nth-of-type(3) {
     width: 33.33333%;
     float: right;
@@ -429,13 +438,14 @@ header .hero {
   }
 }
 
-/* line 235, ../../assets/sass/_layout.scss */
+/* line 247, ../../assets/sass/_layout.scss */
 footer {
+  margin-top: 20px;
+  margin-top: 1.11111rem;
+  padding: 20px 10px 100px 10px;
+  padding: 1.11111rem 0.55556rem 5.55556rem 0.55556rem;
   color: #eae3cb;
   background: #0d3340;
-  margin-top: 20px;
-  padding-top: 20px;
-  padding-bottom: 100px;
 }
 
 /* base styling --- non layout for different parts of the page */

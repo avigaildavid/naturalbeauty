@@ -3,10 +3,7 @@
 
 // Use places holders below to get all the mixin goodness :)
 // also see dev notes at the bottom of the page
-
-
-
-
+//-------------------------------------------------------------------------------------
 // set up for fonts use placeholder not vars
 
 $tiny-font-size      : 10px;
@@ -130,12 +127,12 @@ $xlarge-font-leading : 1.5;
 
 // % = placeholders for Type size variants with breakpoints
 
-%t-rs-tiny         { @include responsiveTypeSize(tiny);   }
-%t-rs-small        { @include responsiveTypeSize(small);  }
-%t-rs-base         { @include responsiveTypeSize(base);   }
-%t-rs-medium       { @include responsiveTypeSize(medium); }
-%t-rs-large        { @include responsiveTypeSize(large);  }
-%t-rs-xlarge       { @include responsiveTypeSize(xlarge); }
+%t-rs-tiny      { @include responsiveTypeSize(tiny);   }
+%t-rs-small     { @include responsiveTypeSize(small);  }
+%t-rs-base      { @include responsiveTypeSize(base);   }
+%t-rs-medium    { @include responsiveTypeSize(medium); }
+%t-rs-large     { @include responsiveTypeSize(large);  }
+%t-rs-xlarge    { @include responsiveTypeSize(xlarge); }
 
 // % = placeholders for Type weights
 

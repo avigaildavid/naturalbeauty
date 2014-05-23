@@ -1,241 +1,254 @@
 // Layout  and all of the responsive setup  here
-
-
-//Susy setup ----------------------------------
-
+// Susy setup --------------------------------------------------------------------------------------
 $susy: (
-  columns: 12, 
-  gutters: 1/4,
-  gutter-position: inside,
-  use-custom: (
-    rem: true,
-  )
-);
-  
+    columns: 12,
+    gutters: .25,
+    math: fluid,
+    global-box-sizing: border-box,
+    use-custom: (rem: true
+    )
+); 
+    @include layout($susy float inside);
+    @include border-box-sizing;
+    
+// Content -----------------------------------------------------------------------------------------
+// section.layout is used as div.inner for all parts of the page. 
+// I use to set grid breakpoints for content
 
-@include border-box-sizing; 
 
-$small-screen-width         : 30em; 
-$medium-screen-width        : 47em;
-$large-screen-width         : 75em;
+.layout { border:1px dashed red;
 
+    
+    @include container;
 
-//Content --------------------------------------------
-// .layout is use to set grid breakpoints for content
- 
-.layout {
-  @include container($susy);
-  .primary {
-    margin-top:2em;
-    @include susy-breakpoint($medium-screen-width , columns) { 
-      @include span(8 of 12);
-        
-      #nextmeeting {
-        @include border-radius(20px);
-        color: $paleryellow;
-        margin : { top: 10px; bottom:10px; }
-        @include rem(padding, 0 20px 20px 20px);
-        background: $cyan;
-
-        h2{
-          color: darken($cyan, 15);
-          border:none;
-          text-shadow: none;
-          margin-bottom: 20px;
-        }
-
-        a {
-          color:$darkblue;
-        }
-      } // nextmeeting
-      
-    } //medium layout
-  } //primary
-
-//Secondary the aside-------------------------------------
-  .secondary{
-    @include susy-breakpoint($medium-screen-width , columns) {
-      @include span(4 of 12 last); 
-        @include rem(font-size, 1.1rem);
-
-        h2{
-          @include rem(font-size, 1.8rem);
-          color: $orange;
-        }
-    }
-  } //secondary
 } //layout
 
 
+    .primary { @include rem(margin-top, 2rem);
 
-//header ----------------------------------------
+        @include susy-breakpoint($medium-screen-width , columns) { 
+            @include span(8 of 12);
+            
+            #nextmeeting {
+                @include border-radius(20px);
+                @include rem(margin, 10px 0);
+                @include rem(padding, 0 20px 20px 20px);
+                background: $cyan;
+                color: $paleryellow;
+
+                h2 {
+                    @include rem(margin-bottom, 20px);
+                    color: darken($cyan, 15);
+                    border:none;
+                    text-shadow: none;
+                }
+
+                a { color:$darkblue; }
+
+            } // nextmeeting
+          
+        } // medium-screen-width
+    } // primary
+
+//Secondary the aside------------------------------------------------------------------------------
+  
+    .secondary {
+        @include susy-breakpoint($medium-screen-width , columns) {
+            @include span(4 of 12 last); 
+            font-size: 1.1rem;
+
+            h2{
+              font-size: 1.8rem;
+              color: $orange;
+            }
+        } // medium-screen-width
+    } //secondary
+
+
+
+
+//header ------------------------------------------------------------------------------------------
 
 header {
 
- .branding{
+ .branding {
       width: 90%;
       max-width: 500px;
       margin-bottom:4%;
-  } //.branding
+  }
 
-  .hero{
-      width:100%;
-         @include susy-breakpoint($medium-screen-width , columns) {
-         @include single-transition(all, 1s, ease-out);
-         position: relative;
-         display:block;
-         width:100%;
-         height: 450px;
-         @include background(linear-gradient(bottom left, rgba($paleryellow , .6), rgba($paleryellow , 0)),image-url('watercolortrees.jpg'));   
-         background-position: center center;
-         background-repeat: no-repeat;
-         @include background-size(cover);
-         margin: 0 auto;
+  .hero { width:100%;
 
-         .branding{
-            position: absolute;
-            left:4%;
-            bottom:4%;
-            margin-bottom:0;
+      @include susy-breakpoint($medium-screen-width , columns) {
 
-            h1 {
-               color: darken($darkblue, 25);
-            }
-         } //.branding
+          @include single-transition(all, 1s, ease-out);
+          position: relative;
+          display:block;
+          width:100%;
+          height: 450px;
+          margin: 0 auto;
+
+          @include background(
+              linear-gradient( 
+                  bottom left, 
+                  rgba($paleryellow , .6), 
+                  rgba($paleryellow , 0)
+              ),
+              image-url('watercolortrees.jpg')
+          );   
+          background-position: center center;
+          background-repeat: no-repeat;
+          @include background-size(cover);
+
+          .branding { 
+              position: absolute;
+              left:4%;
+              bottom:4%;
+              margin-bottom:0;
+
+              h1 { color: darken($darkblue, 25); }
+
+          }
       
       }// medium susy-breakpoint
+
    } //hero
+
 } //header
 
-//Navigation ------------------------------------
-.navigation {
-   background: lighten($darkblue, 15);
+//Navigation ------------------------------------------------------------------------------------
 
-   ul.nav {
-      @include susy-breakpoint($small-screen-width , columns) {
-         @include horizontal-list;
-      } //small
+.navigation { background: lighten($darkblue, 15);
+
+    ul.nav {
+        @include susy-breakpoint($small-screen-width , columns) {
+            @include horizontal-list;
+        } // small-screen-width
 
       li {
 
-         i { color: lighten($yellow, 20); } //icons
+          i { color: lighten($yellow, 20); } //icons
 
-         a {
-            @include single-transition(all, .5s, ease-out);
-            display: block;
-            text-decoration: none;
-            padding: 5px 10px;
-            color: $paleryellow;
+          a {
+              @include rem(padding, 5px 10px);
+              @include single-transition(all, .5s, ease-out);
+              display: block;
+              text-decoration: none;
+              color: $paleryellow;
 
-            &:hover {
-               background: $orange;
-               color: lighten($yellow, 30);
-            }// hover
+              &:hover {
+                 background: $orange;
+                 color: lighten($yellow, 30);
+              } // hover
 
-         }//a
+         } //a
 
       } //li
    } //ul.nav
+
 } // navigation
 
 
-//Featuring List ---------------------------------------
+//Featuring List --------------------------------------------------------------------------------
+
 .featuringlist{
-  img {
-    @include border-radius;
-    width: 120px;
-    float: left;
-    margin: { 
-      right: 10px;
-      bottom: 10px;
-    } //margin
-  } //img
+    img {
+      @include border-radius;
+      @include rem(width, 120px);
+      @include rem(margin, 0 10px 10px 0);
+      float: left;
+    } //img
 
-  i {
-    padding-right: 15px;
-  }
+    i { padding-right: 15px; }
 
-  @include susy-breakpoint($medium-screen-width , columns) {
-    text-align: center;
-    @include background(linear-gradient(top, lighten($darkblue, 3), $darkerblue));
-    color: rgba($paleyellow, .5);
-    overflow: hidden;
-    padding-bottom: 10px;
-    #{headings()} {
-      text-shadow: none;
-      border-bottom: none !important;
-    } //headings
-
-    h2 {
-      color: $green;
-      @include rem(font-size, 2.6rem);
-      line-height: 1em;
-      @include susy-breakpoint($large-screen-width , columns) {
-        @include rem(font-size, 4rem);
-        line-height: 1em;
-      } //large
-    } //h1
-
-    h3 { 
-      color: lighten($yellow, 10);
-      line-height: .9rem;
-    } //h3
-
-    .small {
-      padding-top: .4em !important;
-      line-height: 1em;
-      color: lighten($darkblue, 30);
-      display: block;
-      a {
-        color: lighten($darkblue, 30);
-        text-decoration: none;
-        &:hover {
-          text-decoration: underline;
-        } //hover
-      } //a
-    } // .small
-
-    img.art {
-      float: none;
-      width: 40%;
-      max-width: 170px;
-      margin: 0 auto;
-      @include border-radius(50%);
-    }
-
-
-    p:nth-of-type(2) {
-      font-weight: 200 !important;
-      text-align: left;
-      @include rem(font-size, .8em);
-      opacity: 0;
-      line-height: 0;
-      @include single-transition(all, .3s, ease-out);
-    }
-
-    &:hover {
-      p:nth-of-type(2) {
-        line-height: 1.5em;
-        opacity: 1;
+    @include susy-breakpoint($medium-screen-width , columns) {
+      
+      @include rem(padding-bottom, 10px);
+      @include background(linear-gradient(top, lighten($darkblue, 3), $darkerblue));
+      
+      #{ headings() } {
+          text-shadow: none;
+          border-bottom: none !important;
       }
-    }
 
-    .artist{
-      @include span(4 of 12);
-    }
+      color: rgba($paleyellow, .5);
+      overflow: hidden;
+      text-align: center;
 
-    .artist:nth-of-type(3) {
-      @include span(4 of 12 last);
-    }
-  } //medium -susy-breakpoint
+
+      h2 { 
+          @include rem(font-size, 2.4rem);
+          color: $green;
+          line-height: 1em;
+          font-size: 2.6rem;
+
+          @include susy-breakpoint($large-screen-width , columns) {
+              @include rem(font-size, 4rem);
+              line-height: 1em;
+          } //large 
+      }
+
+      h3 { 
+          @include rem(font-size, 1.8rem);
+          color: lighten($yellow, 10);
+          line-height: .9em;
+
+          .small {
+              padding-top: .4em !important;
+              line-height: 1em;
+              color: lighten($darkblue, 30);
+              display: block;
+
+              a { color: lighten($darkblue, 30);
+                  
+                  &:hover {
+                    text-decoration: underline;
+                  }
+              }
+          }
+
+      } // h3
+
+      img.art {
+          @include border-radius(50%);
+          float: none;
+          width: 40%;
+          max-width: 170px;
+          margin: 0 auto;
+      }
+
+
+      p:nth-of-type(2) {
+          @include rem(font-size, .8rem);
+          @include single-transition(all, .3s, ease-out);
+          font-weight: 200 !important;
+          text-align: left;
+          opacity: 0;
+          line-height: 0;
+      }
+ 
+      &:hover {
+          p:nth-of-type(2) { 
+            opacity: 1;
+            line-height: 1.5em;
+          }
+      }
+
+      .artist{ @include span(4 of 12);  }
+
+      .artist:nth-of-type(3) { @include span(4 of 12 last); }
+
+    } //medium-susy-breakpoint
+
 } // Featuring List 
 
 
 //footer ---------------------------------------
 footer {
+  @include rem(margin-top, 20px);
+  @include rem(padding, 20px 10px 100px 10px);
   color: $paleyellow;
   background: lighten($darkblue, 3);
-  margin-top: 20px;
-  padding-top: 20px;
-  padding-bottom: 100px;
 }
+
+

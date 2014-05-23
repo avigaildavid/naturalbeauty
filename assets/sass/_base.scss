@@ -1,47 +1,44 @@
 
 // "base" partial
+// setting global styles for text
 
 
 
-
-@import url('http://fonts.googleapis.com/css?family=Bree+Serif|Merriweather');
-@import url('http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css');
-
-
-/*setting global styles for text */
-body {  
+body {
+    //@extend %t-rs-base;   
     font-family: $font-body; 
-    @include rem(font-size, 1.2rem);
-    line-height: 160%;
     background: $paleyellow;
     color: $darkblue;
 
+
+    font-size: 1.2rem;
+    line-height: 160%;
 }
-#{headings()}{
+
+#{ headings() }{
     font-family:$font-headline;
     font-weight: normal;
+    margin-bottom:.4rem;
+    padding-top:10px;
     color:$darkgray;
     @include text-shadow($paleryellow 1px 1px);
 }
 
-h1{ 
-    @include rem(font-size, 2.2rem);
-    color: lighten($darkblue, 25);
-    margin-bottom:.4rem;
-    padding-top:10px;
-}
-h2 {
-   @include rem(font-size, 1.5rem);
-   color: lighten($darkblue, 25);
-   margin-bottom:.4rem;
-   padding-top:10px;
-   border-bottom:1px solid $lightgray; 
-}
+// h1 { @extend %t-rs-xlarge; }
+// h2 { @extend %t-rs-large;  }
+// h3, h4 { @extend %t-rs-medium; }
+
+
+h1 {font-size: 2.2rem;}
+h2 {font-size: 1.5rem;}
 h3 {
-    @include rem(font-size, 1.8rem);
+    font-size: 1.8rem;
     line-height: 60%;
     color: $orange;
 }
+
+h1, h2 { color: lighten($darkblue, 25); }
+h2 { border-bottom:1px solid $lightgray; }
 
 a {
     text-decoration: none;
@@ -50,18 +47,14 @@ a {
         color:$orange;
     }
 }
-p {
-    margin-bottom:10px;
-}
+
+p { margin-bottom:10px; }
+
+i { padding-right: .5em; } //icons
+
+.blur{ color: $gray; } // input fields
+
 .small {
-    @include rem(font-size, 1rem);
+    @include rem(font-size, 1.0rem);
     color: $blue;
-}
-
-i {
-    padding-right: .5em;
-  } //icons
-
-.blur{ 
-    color: $gray;
 }

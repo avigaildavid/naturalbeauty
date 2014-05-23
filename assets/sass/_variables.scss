@@ -1,27 +1,4 @@
-
-// Fonts etc. --------------------------------------------------------------------------------
-$font-body       : Merriweather, serif;
-$font-headline   : Bree Serif, serif;
-
-
-// common font stacks
-
-$times-new-roman : "Times New Roman", Times, Georgia, "DejaVu Serif", serif;
-$times           : Times, "Times New Roman", Georgia, "DejaVu Serif", serif;
-$georgia         : Georgia, "Times New Roman", "DejaVu Serif", serif;
-
-$verdana         : Verdana, Tahoma, "DejaVu Sans", sans-serif;
-$tahoma          : Tahoma, Verdana, "DejaVu Sans", sans-serif;
-$helvetica       : Helvetica, Arial, "Nimbus Sans L", sans-serif;
-$arial           : Arial, Helvetica, "Nimbus Sans L", sans-serif;
-
-$courier         : "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
-
-// -------------------------------------------------------------------------------------------
-
-//Font sizes are set in _typescale.scss
-
-// Colors, etc. ----------------------------------------------------------------------
+// Colors, etc. ------------------------------------------------------------------------------
 
 $lightgray      : #819090;
 $gray           : #708284;
@@ -41,16 +18,46 @@ $cyan           : #259286;
 $green          : #738A05;
 
 
+// Fonts etc. --------------------------------------------------------------------------------
+
+$font-body       : Merriweather, serif;
+$font-headline   : Bree Serif, serif;
 
 
-$default-border-radius : 10px;
+// common font stacks
+
+$times-new-roman : "Times New Roman", Times, Georgia, "DejaVu Serif", serif;
+$times           : Times, "Times New Roman", Georgia, "DejaVu Serif", serif;
+$georgia         : Georgia, "Times New Roman", "DejaVu Serif", serif;
+
+$verdana         : Verdana, Tahoma, "DejaVu Sans", sans-serif;
+$tahoma          : Tahoma, Verdana, "DejaVu Sans", sans-serif;
+$helvetica       : Helvetica, Arial, "Nimbus Sans L", sans-serif;
+$arial           : Arial, Helvetica, "Nimbus Sans L", sans-serif;
+
+$courier         : "Courier New", "DejaVu Sans Mono", monospace, sans-serif;
+
+//Font sizes are set in _typescale.scss
+
+// -------------------------------------------------------------------------------------------
+
+// Breakpoint--------------------------
+
+$small-screen-width       : 30em; 
+$medium-screen-width      : 47em;
+$large-screen-width       : 75em;
+
+// Compass ----------------------------
+
+$rhythm-unit              : "rem"; // Compass Sets rhythm unit to rem. Remove to use default em unit. 
+$default-border-radius    : 10px;
 
 
-// Legacy IE support ----------------------------------------------------------------------
+// Legacy IE support ------------------
 
-$legacy-support-for-ie6: false;
-$legacy-support-for-ie7: false;
-$legacy-support-for-ie8: true;
+$legacy-support-for-ie6   : false;
+$legacy-support-for-ie7   : false;
+$legacy-support-for-ie8   : true;
 
 // To turn on support for IE6 or IE7, set those variables to true.
 // the documentation at http://compass-style.org/reference/compass/support/

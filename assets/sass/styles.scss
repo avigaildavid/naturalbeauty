@@ -1,11 +1,25 @@
 
-@import "compass";
-@import "compass/reset";
-@import "compass/support";
-@import "susy";
-@import "breakpoint";
+@import "compass";             // Compass Core Framework -  CSS3, Typography, and Utilities
+@import "compass/reset";      // Compass styling reset - Based on Eric Meyer's reset 2.0 Global reset rules.
+@import "compass/support";   // Compass IE and vendor prefix support variables.
 
-@import "variables";
+@import "susy";             // Susy gem: for building Responsive  Grids layout mixins.
+@import "breakpoint";      // Breakpoint gem: for building media queries 
+
+// ------------------------------------------------------------------------------------------------------------
+// Project.scss -----------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------
+
+@import "variables";    // All project variables
+@import "typescale";   // Typography sass mixins and placeholders
+
 @import "base";
 @import "layout";
 @import "modules";
+ 
+// ------------------------------------------------------------------------------------------------------------
+// Fonts and Icons --------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------
+
+@import url('http://fonts.googleapis.com/css?family=Bree+Serif|Merriweather');
+@import url('http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css');
